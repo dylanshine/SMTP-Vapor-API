@@ -2,19 +2,21 @@
 import PackageDescription
 
 let package = Package(
-    name: "TFT-API",
+    name: "SMTP-API",
     platforms: [
        .macOS(.v10_15)
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0")
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
+        .package(url: "https://github.com/Mikroservices/Smtp.git", from: "2.0.0")
     ],
     targets: [
         .target(
             name: "App",
             dependencies: [
-                .product(name: "Vapor", package: "vapor")
+                .product(name: "Vapor", package: "vapor"),
+                .product(name: "Smtp", package: "Smtp")
             ],
             swiftSettings: [
                 // Enable better optimizations when building in Release configuration. Despite the use of
